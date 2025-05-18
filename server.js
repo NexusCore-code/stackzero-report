@@ -5,7 +5,12 @@ const chromium = require('@sparticuz/chromium');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({ origin: 'https://stackzero.ai' })); // разрешаем только с твоего домена
+
+// Продакшн CORS — разрешаем только с твоего домена
+app.use(cors({
+  origin: 'https://stackzero.ai'
+}));
+
 app.use(bodyParser.json());
 
 app.post('/submit', async (req, res) => {
@@ -48,7 +53,7 @@ app.post('/submit', async (req, res) => {
     await browser.close();
 
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', 'inline; filename=\"report.pdf\"');
+    res.setHeader('Content-Disposition', 'inline; filename="report.pdf"');
     res.send(pdf);
   } catch (error) {
     console.error(error);
