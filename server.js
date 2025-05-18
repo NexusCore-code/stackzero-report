@@ -5,7 +5,7 @@ const chromium = require('@sparticuz/chromium');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({ origin: 'https://www.stackzero.ai' })); // разрешаем только с твоего домена
+app.use(cors({ origin: 'https://stackzero.ai' })); // разрешаем только с твоего домена
 app.use(bodyParser.json());
 
 app.post('/submit', async (req, res) => {
