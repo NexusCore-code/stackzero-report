@@ -8,7 +8,7 @@ const app = express();
 
 // Продакшн CORS — разрешаем только с твоего домена
 app.use(cors({
-  origin: 'https://stackzero.ai'
+  origin: ['https://stackzero.ai', 'https://wwww.stackzero.ai']
 }));
 
 app.use(bodyParser.json());
