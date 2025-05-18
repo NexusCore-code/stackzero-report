@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const puppeteer = require('puppeteer-core');
 const chromium = require('@sparticuz/chromium');
+const cors = require('cors');
 
 const app = express();
+app.use(cors({ origin: 'https://www.stackzero.ai' })); // разрешаем только с твоего домена
 app.use(bodyParser.json());
 
 app.post('/submit', async (req, res) => {
@@ -46,7 +48,7 @@ app.post('/submit', async (req, res) => {
     await browser.close();
 
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', 'inline; filename="report.pdf"');
+    res.setHeader('Content-Disposition', 'inline; filename=\"report.pdf\"');
     res.send(pdf);
   } catch (error) {
     console.error(error);
