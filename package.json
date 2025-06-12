@@ -14,7 +14,7 @@
     "nodemailer": "^6.9.13",
     "openai": "^4.26.0",
     "puppeteer": "^21.3.8",
-    "serpapi": "^1.1.1"
+    "serpapi": "^1.1.1",
+    "uuid": "^9.0.0"
   }
 }
-
