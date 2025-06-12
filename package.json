@@ -2,16 +2,19 @@
   "name": "stackzero-app",
   "version": "1.0.0",
   "main": "server.js",
-  "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node -r dotenv/config server.js"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "puppeteer": "^21.3.8",
-    "nodemailer": "^6.9.13",
     "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.13",
     "openai": "^4.26.0",
-    "serpapi": "^1.0.0"
+    "puppeteer": "^21.3.8",
+    "serpapi": "^1.1.1"
   }
 }
+
