@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
-import { generatePDF } from './server/generate-pdf.js';
+import { generatePDF } from './generate-pdf.js';
 
 config();
 
@@ -24,6 +24,8 @@ app.post('/submit', async (req, res) => {
   }
 
   try {
+    console.log('✅ Incoming request:', { name, email, subscriptions, type }); // ✅ Лог запроса
+
     const file = await generatePDF({ name, email, subscriptions, type });
     const buffer = fs.readFileSync(file);
     res.setHeader('Content-Type', 'application/pdf');
