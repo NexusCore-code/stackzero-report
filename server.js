@@ -1,13 +1,13 @@
-import express from 'express';
-import { config } from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
-import { generatePDF } from './generate-pdf.js';
+const express = require('express');
+const dotenv = require('dotenv');
+const path = require('path');
+const fs = require('fs');
+const { fileURLToPath } = require('url');
+const { generatePDF } = require('./generate-pdf.js');
 
-config();
+dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = __filename || fileURLToPath(import.meta.url); // если поддерживается
 const __dirname = path.dirname(__filename);
 
 const app = express();
@@ -24,7 +24,7 @@ app.post('/submit', async (req, res) => {
   }
 
   try {
-    console.log('✅ Incoming request:', { name, email, subscriptions, type }); // ✅ Лог запроса
+    console.log('✅ Incoming request:', { name, email, subscriptions, type });
 
     const file = await generatePDF({ name, email, subscriptions, type });
     const buffer = fs.readFileSync(file);
