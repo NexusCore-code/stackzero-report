@@ -7,8 +7,7 @@ const { generatePDF } = require('./generate-pdf.js');
 
 dotenv.config();
 
-const __filename = __filename || fileURLToPath(import.meta.url); // если поддерживается
-const __dirname = path.dirname(__filename);
+const __dirname = path.resolve();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
