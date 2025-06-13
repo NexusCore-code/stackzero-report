@@ -33,6 +33,7 @@ app.post('/submit', async (req, res) => {
     res.send(buffer);
   } catch (err) {
     console.error('❌ PDF generation failed:', err);
+    console.error('🔥 Full error:', err);
     res.status(500).json({ error: 'Failed to generate report' });
   }
 });
